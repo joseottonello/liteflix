@@ -3,7 +3,7 @@ import { useState } from "react"
 import { MenuContext } from '../../context/MenuContext'
 import styled from 'styled-components'
 import { motion } from 'framer-motion'
-import Dropdown from '../Dropdown'
+import Dropdown from '../custom/Dropdown'
 
 const URLimage = (posterpath) => {
     return `https://www.themoviedb.org/t/p/w220_and_h330_face${posterpath}`
@@ -14,8 +14,7 @@ export default function PopularMovies({ movies }) {
     const { menuState } = useContext(MenuContext)
     const [ state, setState ] = useState(false)
 
-    const populars = movies.filter((movie) => movie.id > 920000);
-
+    const populars = movies.filter((movie) => movie.id > 835000);
     return (
         <Container
         initial={{ opacity: 0, y: 0.5 }}
@@ -93,11 +92,11 @@ const Text = styled.span`
     align-items: center;
     font-family: 'Bebas Neue';
     font-style: normal;
-    font-weight: 400;
     font-size: 18px;
     line-height: 18px;
     text-align: center;
     letter-spacing: 4px;
+    font-weight: ${props => props.title ? "400" : "lighter"};
     color: ${props => props.title ? "#fff" : "#999"};
 `
     
@@ -108,7 +107,6 @@ const Icon = styled.div`
 `
 
 const Div = styled.div`
-    gap: 1rem;
     margin-top: 0.5rem;
     padding 1.5rem;
     display: flex;
@@ -124,7 +122,7 @@ const Movies = styled.div`
     margin-top: 1rem;
 `
 const Img = styled.img`
-    width: 220px;
+    width: 190px;
     height: 120px;
 `
 

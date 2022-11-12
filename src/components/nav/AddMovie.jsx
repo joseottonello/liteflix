@@ -1,13 +1,24 @@
 import { useContext } from 'react'
 import styled from 'styled-components'
 import ModalContext from '../../context/ModalContext'
-
+import MenuContext from '../../context/MenuContext'
 
 export default function AddMovie() {
-    const { changeModalState } = useContext(ModalContext)
+    const { modalState, changeModalState } = useContext(ModalContext)
+    const { menuState, changeMenuState } = useContext(MenuContext)
+
+
+    const fn = () => {
+        if (menuState === true) {
+            changeModalState(!modalState)
+            changeMenuState(!menuState)
+        } else {
+            changeModalState(!modalState)
+        }
+    }
 
     return (
-        <Btn onClick={changeModalState}>
+        <Btn onClick={fn}>
             <Icon>
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />

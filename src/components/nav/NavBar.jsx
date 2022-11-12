@@ -1,10 +1,9 @@
-
 import { motion } from 'framer-motion'
 import styled from 'styled-components'
 import AddMovie from './AddMovie'
 import Icons from './Icons'
 
-export default function NavBar({ movies, menuState, setMenuState }) {
+export default function NavBar({ movies }) {
 
     return (
         <Container
@@ -28,9 +27,7 @@ export default function NavBar({ movies, menuState, setMenuState }) {
             </Section>
             <Section>
                 <Icons 
-                movies={movies}
-                menuState={menuState}
-                setMenuState={setMenuState}/>
+                movies={movies}/>
             </Section>
         </Container>
     )

@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import NavBar from './nav/NavBar'
-import Modal from './Modal'
-import Menu from  './Menu'
+import Modal from './custom/Modal'
+import Menu from  './custom/Menu'
 import FeaturedMovie from './home/FeaturedMovie'
 import PopularMovies from './home/PopularMovies'
 
@@ -23,13 +23,12 @@ export default function Container() {
             .then(infoP => {
                 setPopular(infoP.results)
         })
-        console.log(popular)
         
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     return (
-        <Layout>
+        <Layout movies={featured}>
             <Modal movies={popular}/>
             <Menu />
             <NavBar 
