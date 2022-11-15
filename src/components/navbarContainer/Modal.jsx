@@ -1,11 +1,12 @@
-import { useState } from 'react'
 import { useContext } from 'react'
-import styled from 'styled-components'
 import ModalContext from '../../context/ModalContext'
+import OptionsContext from '../../context/OptionsContext'
+import styled from 'styled-components'
 
-export default function Modal({ movies }) {
-    const { back, modalState, changeModalState, state, addMovies  } = useContext(ModalContext)
-    const [ options, setOptions ] = useState(false)
+export default function Modal() {
+    const { modalState, changeModalState, addMovies } = useContext(ModalContext)
+    const { select, changeOptionsState } = useContext(OptionsContext)
+    console.log(select)
 
     return (
         <>
@@ -21,44 +22,18 @@ export default function Modal({ movies }) {
                         <Header>
                             <h1>agregar pelicula</h1>
                         </Header>
-                            {
-                                state === false ?
-                                <>
-                                    <AddMovie>
-                                        <Content onClick={() => setOptions(!options)}>
-                                            {
-                                                options === false
-                                                ? <>
-                                                    <Icon>
-                                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
-                                                            <path strokeLinecap="round" strokeLinejoin="round" d="M18.375 12.739l-7.693 7.693a4.5 4.5 0 01-6.364-6.364l10.94-10.94A3 3 0 1119.5 7.372L8.552 18.32m.009-.01l-.01.01m5.699-9.941l-7.81 7.81a1.5 1.5 0 002.112 2.13" />
-                                                        </svg>
-                                                    </Icon>  
-                                                    <h1>selecciona una opcion</h1>
-                                                </>
-                                                : <>
-                                                    <h1>PELICULA</h1>
-                                                </>
-                                            }
-                                        </Content>
-                                    </AddMovie>
-                                </> :
-                                <>
-                                    <Text>
-                                        ¡felicitaciones su pelicula ha sido guardada en su lista!
-                                    </Text>
-                                </>
-                            }
+                            <AddMovie onClick={changeOptionsState}>
+                                <Content>
+                                    <Icon>
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                                            <path strokeLinecap="round" strokeLinejoin="round" d="M18.375 12.739l-7.693 7.693a4.5 4.5 0 01-6.364-6.364l10.94-10.94A3 3 0 1119.5 7.372L8.552 18.32m.009-.01l-.01.01m5.699-9.941l-7.81 7.81a1.5 1.5 0 002.112 2.13" />
+                                        </svg>
+                                    </Icon>  
+                                        <h1>selecciona una opcion</h1>  
+                                </Content>
+                            </AddMovie>
                             <Content input>
-                                {
-                                    state === false ?
-                                    <>
-                                        <button type='submit' onClick={addMovies}>subir pelicula</button>
-                                    </> :
-                                    <>
-                                        <button onClick={back}>salir</button>
-                                    </>
-                                }
+                                <button type='submit' onClick={addMovies}>subir pelicula</button> 
                             </Content>
                     </Container>
                 </Overlay>
@@ -73,13 +48,16 @@ const Overlay = styled.div`
     background: rgba(0, 0, 0, .5);
     position: fixed;
     top: 0;
-
     display: flex;
     align-items: center;
     justify-content: center;
+
     `
     
-const Container = styled.div`
+    const Container = styled.div`
+    @media (max-width: 768px) {
+        width: 400px;
+    }
     width: 500px;
     height: auto;
     background: red;
@@ -104,7 +82,6 @@ const Header = styled.div`
         letter-spacing: 4px;
         color: #64EEBC;
     }
-
 `
 
 const Close = styled.div`
@@ -168,15 +145,4 @@ const Icon = styled.div`
     margin: 1rem;
     width: 20px;
     color:#fff;
-`
-
-const Text = styled.div`
-    font-family: 'Bebas Neue';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 19px;
-    letter-spacing: 4px;
-
-    color: #FFFFFF;
 `

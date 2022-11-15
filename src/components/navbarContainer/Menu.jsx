@@ -1,8 +1,8 @@
-import styled from 'styled-components'
-import AddMovie from '../nav/AddMovie'
 import { useContext } from 'react'
 import MenuContext from '../../context/MenuContext'
-import List from './List'
+import AddMovie from './AddMovie'
+import List from '../custom/List'
+import styled from 'styled-components'
 
 export default function Menu() {
     const { menuState } = useContext(MenuContext)
@@ -39,6 +39,10 @@ const Overlay = styled.div`
     display: flex;
     align-items: center;
     justify-content: right;
+
+    @media (max-width: 768px) {
+        width: 768px;
+    }
 `
     
 const Container = styled.div`

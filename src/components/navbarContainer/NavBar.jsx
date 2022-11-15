@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
-import styled from 'styled-components'
 import AddMovie from './AddMovie'
-import Icons from './Icons'
+import Icons from '../custom/Icons'
+import styled from 'styled-components'
 
 export default function NavBar({ movies }) {
 
@@ -34,7 +34,6 @@ export default function NavBar({ movies }) {
 }
 
 const Container = styled(motion.div)`
-    z-index: 0;
     margin: 0 5rem 0 5rem;
     display: flex;
     flex-direction: row;

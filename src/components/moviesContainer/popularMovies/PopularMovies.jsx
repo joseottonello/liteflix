@@ -1,20 +1,23 @@
-import { useContext } from "react"
-import { useState } from "react"
-import { MenuContext } from '../../context/MenuContext'
-import styled from 'styled-components'
+import { useContext, useState } from "react"
+import { MenuContext } from '../../../context/MenuContext'
+import { OptionsContext } from "../../../context/OptionsContext"
 import { motion } from 'framer-motion'
-import Dropdown from '../custom/Dropdown'
+import Dropdown from './Dropdown'
+import MyMovieList from './MyMovieList'
+import styled from 'styled-components'
 
 const URLimage = (posterpath) => {
     return `https://www.themoviedb.org/t/p/w220_and_h330_face${posterpath}`
 }
 
 export default function PopularMovies({ movies }) {
-    const [ dropdown, setDropdown ] = useState(false)
-    const { menuState } = useContext(MenuContext)
     const [ state, setState ] = useState(false)
+    const { menuState } = useContext(MenuContext)
+    const { select } = useContext(OptionsContext)
+    const [ dropdown, setDropdown ] = useState(false)
 
-    const populars = movies.filter((movie) => movie.id > 835000);
+    const populars = movies.filter((movie) => movie.id > 970000);
+
     return (
         <Container
         initial={{ opacity: 0, y: 0.5 }}
@@ -54,7 +57,7 @@ export default function PopularMovies({ movies }) {
                                 <Img src={URLimage(movie.poster_path)} alt={movie.poster_path} />
                             </Movies>
                         ))
-                        : null
+                        : <MyMovieList movies={select}/>
                     }
                 </motion.div>
             </Content>
@@ -68,7 +71,6 @@ const Container = styled(motion.div)`
 
     @media (max-width: 768px) {
         margin: 4rem 0 3rem 0;
-        
     }
 `
 
@@ -122,7 +124,7 @@ const Movies = styled.div`
     margin-top: 1rem;
 `
 const Img = styled.img`
-    width: 190px;
-    height: 120px;
+    width: 230px;
+    height: 170px;
 `
 

@@ -1,10 +1,11 @@
 import { useState, useEffect } from 'react'
+import NavBar from '../navbarContainer/NavBar'
+import Menu from  '../navbarContainer/Menu'
+import Modal from '../navbarContainer/Modal'
+import Options from '../navbarContainer/Options'
+import FeaturedMovies from '../moviesContainer/featuredMovies/FeaturedMovies'
+import PopularMovies from '../moviesContainer/popularMovies/PopularMovies'
 import styled from 'styled-components'
-import NavBar from './nav/NavBar'
-import Modal from './custom/Modal'
-import Menu from  './custom/Menu'
-import FeaturedMovie from './home/FeaturedMovie'
-import PopularMovies from './home/PopularMovies'
 
 export default function Container() {
     const [ popular, setPopular ] = useState([])
@@ -28,17 +29,20 @@ export default function Container() {
     }, [])
 
     return (
-        <Layout movies={featured}>
-            <Modal movies={popular}/>
-            <Menu />
+        <Layout>
             <NavBar 
             movies={popular}/>
-            <Home>
-                <FeaturedMovie 
+            <MoviesContainer>
+                <FeaturedMovies
                 movies={featured}/>
                 <PopularMovies 
                 movies={popular} />
-            </Home>
+            </MoviesContainer>
+            
+            <Menu />
+            <Modal/>
+            <Options 
+            movies={featured}/>
         </Layout>
     )
 }
@@ -57,7 +61,7 @@ const Layout = styled.div`
         background-position: center;
     }
 `
-const Home = styled.div`
+const MoviesContainer = styled.div`
     margin: 0 5rem 0 5rem;
     display: flex;
     flex-direction: row;
