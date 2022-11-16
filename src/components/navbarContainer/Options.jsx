@@ -69,7 +69,7 @@ const Content = styled.div`
     grid-auto-flow: dense;
     grid-auto-rows: minmax(200px, auto);
     grid-template-columns: repeat(auto-fill, max(15rem));
-    `
+`
 
 const Cont = styled.div`
     display: flex;

@@ -50,7 +50,7 @@ export default function PopularMovies({ movies }) {
                             </Div>
                     }
                 </Options>
-                <div>
+                <>
                     {
                         state === false 
                         ?
@@ -62,7 +62,7 @@ export default function PopularMovies({ movies }) {
                         ))
                         : <MyMovieList movies={select} dropdown={dropdown}/>
                     }
-                </div>
+                </>
             </Content>
             }
         </Container>

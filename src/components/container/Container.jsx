@@ -24,8 +24,6 @@ export default function Container() {
             .then(infoP => {
                 setPopular(infoP.results)
         })
-        
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     return (
@@ -60,6 +58,7 @@ const Layout = styled.div`
         background-position: center;
     }
 `
+
 const MoviesContainer = styled.div`
     margin: 0 5rem 0 5rem;
     display: flex;

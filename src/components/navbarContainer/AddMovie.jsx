@@ -35,12 +35,14 @@ const Btn = styled.div`
     flex-direction: row;
     align-items: center;
     margin-left: 2rem;
-    `  
+`
+
 const Icon = styled.div`
     color: #fff;
     width: 14px;
     padding: 0.5rem;
 `
+
 const Text = styled.span`
     text-transform: uppercase;
     font-family: 'Bebas Neue';

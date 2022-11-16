@@ -7,7 +7,7 @@ export default function Modal() {
     const { modalState, changeModalState } = useContext(ModalContext)
     const { select, titleState, changeOptionsState, changeTitleState} = useContext(OptionsContext)
 
-    function fn() {
+    const changeStates = () => {
         changeModalState()
         changeTitleState()
     }
@@ -44,9 +44,8 @@ export default function Modal() {
                                 </Content>
                             </AddMovie>
                             <Content input>
-                                <button type='submit' onClick={fn}>subir pelicula</button> 
+                                <button type='submit' onClick={changeStates}>subir pelicula</button> 
                             </Content>
-                            
                     </Container>
                 </Overlay>
             }
@@ -63,13 +62,9 @@ const Overlay = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-
-    `
+`
     
-    const Container = styled.div`
-    @media (max-width: 768px) {
-        width: 400px;
-    }
+const Container = styled.div`
     width: 500px;
     height: auto;
     background: red;
@@ -77,6 +72,10 @@ const Overlay = styled.div`
     background: #242424;
     padding: 20px;
     justify-content: center;
+
+    @media (max-width: 768px) {
+        width: 400px;
+    }
 `
     
 const Header = styled.div`

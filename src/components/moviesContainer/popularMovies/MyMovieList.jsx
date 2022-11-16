@@ -5,15 +5,15 @@ const URLimage = (posterpath) => {
 }
 
 export default function MyMovieList({ movies }) {
-  return (
-    <>
-        {
-            <Movies >
-                <Img src={URLimage(movies.poster_path)} alt={movies.poster_path} />
-            </Movies>
-        }
-    </>
-  )
+    return (
+        <>
+            {
+                <Movies >
+                    <Img src={URLimage(movies.poster_path)} alt={movies.poster_path} />
+                </Movies>
+            }
+        </>
+    )
 }
 
 const Movies = styled.div`

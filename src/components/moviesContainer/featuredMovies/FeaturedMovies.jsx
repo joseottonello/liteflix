@@ -44,6 +44,7 @@ const Container = styled(motion.div)`
         margin: 15rem 0 0 0;
     }
 `
+
 const Text = styled.span`
     font-weight: 700;
     font-style: normal;
@@ -60,6 +61,7 @@ const Text = styled.span`
         letter-spacing: ${props => props.title ? "5px" : "4px"};
     }
 `
+
 const Button = styled.button`
     color: #fff;
     Width: 248px;

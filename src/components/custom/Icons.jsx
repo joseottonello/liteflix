@@ -1,6 +1,6 @@
 import { useContext } from 'react'
-import MenuContext from '../../context/MenuContext'
 import { motion } from 'framer-motion'
+import MenuContext from '../../context/MenuContext'
 import styled from 'styled-components'
 
 export default function Icons() {
@@ -8,7 +8,7 @@ export default function Icons() {
 
     return (
         <Container>
-            <Icon menu
+            <Menu
             whileTap={{ scale: 1 }}
             whileHover={{ scale: 1.1 }}
             transition={{ duration: 0.5 }}>
@@ -24,7 +24,7 @@ export default function Icons() {
                       
                     }
                 </div>
-            </Icon>
+            </Menu>
             <Icon
             whileTap={{ scale: 1 }}
             whileHover={{ scale: 1.1 }}
@@ -49,14 +49,20 @@ const Container = styled.div`
     color: #fff;
     display: flex;
     flex-direction: row;
+`
 
-    @media (max-width: 768px) {
-        display: none;
-    }
+const Menu = styled(motion.div)`
+    margin: 1.5rem;
+    width: 40px;
+    cursor: pointer;
 `
     
 const Icon = styled(motion.div)`
     margin: 1.5rem;
     width: 40px;
     cursor: pointer;
+
+    @media (max-width: 768px) {
+        display: none;
+    }
 `

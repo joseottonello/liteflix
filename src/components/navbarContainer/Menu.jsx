@@ -68,4 +68,9 @@ const IconContent = styled.div`
     justify-content: flex-end;
     margin-right: 3.5rem;
 
+    @media (max-width: 768px) {
+        display: inherit;
+        margin: 0;
+    }
+
 `
