@@ -2,6 +2,7 @@ import { useContext } from 'react'
 import MenuContext from '../../context/MenuContext'
 import AddMovie from './AddMovie'
 import List from '../custom/List'
+import Icons from '../custom/Icons'
 import styled from 'styled-components'
 
 export default function Menu() {
@@ -13,6 +14,9 @@ export default function Menu() {
                 menuState &&
                 <Overlay>
                     <Container>
+                        <IconContent>
+                            <Icons />
+                        </IconContent>
                         <Content>
                             <List props={"inicio"}></List>
                             <List props={"series"}></List>
@@ -41,7 +45,7 @@ const Overlay = styled.div`
     justify-content: right;
 
     @media (max-width: 768px) {
-        width: 768px;
+        width: 740px;
     }
 `
     
@@ -57,4 +61,11 @@ const Content = styled.div`
     display: flex;
     flex-direction: column;
     margin: 8rem 0 0 0;
+    `
+    
+const IconContent = styled.div`
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 3.5rem;
+
 `

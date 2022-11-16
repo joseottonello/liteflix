@@ -5,7 +5,10 @@ export default function FeaturedMovie({ movies }) {
     const featured = movies.filter(x => x.title === "Spider-Man: No Way Home")
     
     return (
-        <Container>
+        <Container
+        initial={{ opacity: 0, y: 0.5 }}
+        animate={{ opacity: 1, x: 1 }}
+        transition={{ duration: 2.5 }}>
             {              
                 featured.map((movie) => (
                     <motion.div
@@ -15,14 +18,17 @@ export default function FeaturedMovie({ movies }) {
                             <Text subtitle> liteflix </Text>
                         </div>
                             <Text title>{movie.title}</Text>
-                        <div btn>
+                        <motion.div btn
+                        initial={{ opacity: 0, y: 0.5 }}
+                        animate={{ opacity: 1, x: 1 }}
+                        transition={{ duration: 4 }}>
                             <Button>  
                                 reproducir 
                             </Button>
                             <Button add>
                                 mi lista
                             </Button>
-                        </div>
+                        </motion.div>
                     </motion.div>
                 ))
             }
@@ -70,6 +76,10 @@ const Button = styled.button`
     font-family: 'Bebas Neue';
     background: ${props => props.add ? "rgba(36, 36, 36, 0.5)" : "#494848"};
     border: ${props => props.add ? "1px solid rgba(255, 255, 255, 0.5)" : "none"};
+
+    &hover {
+        color: #000;
+    }
 
     @media (max-width: 768px) {
         margin: 0.5rem;

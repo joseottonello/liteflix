@@ -7,7 +7,6 @@ const URLimage = (posterpath) => {
 }
 
 export default function Menu({ movies }) {
-    // eslint-disable-next-line
     const { optionsState, saveMovie } = useContext(OptionsContext)
 
     const movieFilter = movies.filter((x) => x.id > 800000)

@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'
 import styled from 'styled-components'
 
 export default function Icons() {
-    const { changeMenuState } = useContext(MenuContext)
+    const { menuState, changeMenuState } = useContext(MenuContext)
 
     return (
         <Container>
@@ -13,9 +13,16 @@ export default function Icons() {
             whileHover={{ scale: 1.1 }}
             transition={{ duration: 0.5 }}>
                 <div onClick={changeMenuState}>
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={0.5} stroke="currentColor" className="w-6 h-6">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-                    </svg>
+                    {
+                        menuState === false
+                        ? <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={0.5} stroke="currentColor" className="w-6 h-6">
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                          </svg>
+                        : <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={0.5} stroke="currentColor" className="w-6 h-6">
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                          </svg>
+                      
+                    }
                 </div>
             </Icon>
             <Icon
@@ -42,6 +49,10 @@ const Container = styled.div`
     color: #fff;
     display: flex;
     flex-direction: row;
+
+    @media (max-width: 768px) {
+        display: none;
+    }
 `
     
 const Icon = styled(motion.div)`

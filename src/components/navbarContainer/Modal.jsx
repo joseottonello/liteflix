@@ -4,9 +4,13 @@ import OptionsContext from '../../context/OptionsContext'
 import styled from 'styled-components'
 
 export default function Modal() {
-    const { modalState, changeModalState, addMovies } = useContext(ModalContext)
-    const { select, changeOptionsState } = useContext(OptionsContext)
-    console.log(select)
+    const { modalState, changeModalState } = useContext(ModalContext)
+    const { select, titleState, changeOptionsState, changeTitleState} = useContext(OptionsContext)
+
+    function fn() {
+        changeModalState()
+        changeTitleState()
+    }
 
     return (
         <>
@@ -29,12 +33,20 @@ export default function Modal() {
                                             <path strokeLinecap="round" strokeLinejoin="round" d="M18.375 12.739l-7.693 7.693a4.5 4.5 0 01-6.364-6.364l10.94-10.94A3 3 0 1119.5 7.372L8.552 18.32m.009-.01l-.01.01m5.699-9.941l-7.81 7.81a1.5 1.5 0 002.112 2.13" />
                                         </svg>
                                     </Icon>  
-                                        <h1>selecciona una opcion</h1>  
+                                        {
+                                            titleState === false
+                                            ? <h1>selecciona una opcion</h1> 
+                                            : <Title>
+                                                <h1>{select.title}</h1> 
+                                                <span>{select.overview}</span>
+                                              </Title>
+                                        }
                                 </Content>
                             </AddMovie>
                             <Content input>
-                                <button type='submit' onClick={addMovies}>subir pelicula</button> 
+                                <button type='submit' onClick={fn}>subir pelicula</button> 
                             </Content>
+                            
                     </Container>
                 </Overlay>
             }
@@ -143,6 +155,35 @@ const Content = styled.div`
 
 const Icon = styled.div`
     margin: 1rem;
-    width: 20px;
+    width: 30px;
     color:#fff;
+`
+
+const Title = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    h1 {
+        font-family: 'Bebas Neue';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 20px;
+        line-height: 20px;
+        letter-spacing: 4px;
+        color: #fff;
+    }
+    
+    span {
+        font-family: 'Bebas Neue';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 15px;
+        text-align: justify;
+        line-height: 20px;
+        letter-spacing: 2px;
+        color: #fff;
+
+    }
 `

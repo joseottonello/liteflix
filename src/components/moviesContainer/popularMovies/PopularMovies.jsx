@@ -21,20 +21,23 @@ export default function PopularMovies({ movies }) {
     return (
         <Container
         initial={{ opacity: 0, y: 0.5 }}
-        animate={{ opacity: 1, y: 1 }}
-        transition={{ duration: 2 }}>
+        animate={{ opacity: 1, x: -10 }}
+        transition={{ duration: 3 }}>
             {
                 menuState === true
                 ? null
                 : <Content>
                 <Options 
-                onClick={() => setDropdown(!dropdown)}>
-                    <Text>ver: </Text>
+                onClick={() => setDropdown(!dropdown)}
+                whileTap={{ scale: 1 }}
+                whileHover={{ scale: 1.02 }}
+                transition={{ duration: 0.5 }}>
+                    <Text options>ver: </Text>
                     <Text title>
                         {state === false ? "populares" : "mis peliculas"}
                     </Text>
                     <Icon>
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={3} stroke="currentColor" className="w-6 h-6">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1} stroke="currentColor" className="w-6 h-6">
                             <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
                         </svg>
                     </Icon>
@@ -47,7 +50,7 @@ export default function PopularMovies({ movies }) {
                             </Div>
                     }
                 </Options>
-                <motion.div>
+                <div>
                     {
                         state === false 
                         ?
@@ -57,9 +60,9 @@ export default function PopularMovies({ movies }) {
                                 <Img src={URLimage(movie.poster_path)} alt={movie.poster_path} />
                             </Movies>
                         ))
-                        : <MyMovieList movies={select}/>
+                        : <MyMovieList movies={select} dropdown={dropdown}/>
                     }
-                </motion.div>
+                </div>
             </Content>
             }
         </Container>
@@ -100,13 +103,7 @@ const Text = styled.span`
     letter-spacing: 4px;
     font-weight: ${props => props.title ? "400" : "lighter"};
     color: ${props => props.title ? "#fff" : "#999"};
-`
-    
-const Icon = styled.div`
-    margin-left: ${props => props.check ? "3rem" : null};
-    width: 20px;
-    color: #fff;
-`
+`  
 
 const Div = styled.div`
     margin-top: 0.5rem;
@@ -122,9 +119,18 @@ const Div = styled.div`
 
 const Movies = styled.div`
     margin-top: 1rem;
+
+    &:hover {
+        width: 1rem;
+    }
 `
 const Img = styled.img`
     width: 230px;
     height: 170px;
+`
+
+const Icon = styled.div`
+    width: 20px;
+    color: #fff;
 `
 

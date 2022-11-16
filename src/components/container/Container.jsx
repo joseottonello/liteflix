@@ -38,7 +38,6 @@ export default function Container() {
                 <PopularMovies 
                 movies={popular} />
             </MoviesContainer>
-            
             <Menu />
             <Modal/>
             <Options 

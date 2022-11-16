@@ -1,70 +1,25 @@
-# Getting Started with Create React App
+# Distribucion de Componentes
+A modo de guia y tomando de refencia la pantalla al iniciar el proyecto, los componentes se encuentran distribuidos de la siguiente manera:
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+En la carpeta `container`, se encontrara el archivo general desde donde se realiza el llamado a las dos API´s brindadas para el desafio y al resto de los componentes.
 
-## Available Scripts
+En la carpeta `navbarContainer` se encuentran todos los componentes que van dentro del navbar o bien que se despliegan desde el mismo.
 
-In the project directory, you can run:
+En la carpeta `MoviesContainer` se encuentran dos carpetas, por un lado `featuredMovies`, donde se realiza el llamado a la API que contiene las peliculas destacadas y se realiza un mapeo para obtener sus datos. Por otro lado en la carpeta `popularMovies` se encuentra el dropdown
+donde desplegar las opciones "Peliculas Populares" donde realice primeramente un filtrado de las peliculas populares de la API para obtener solo las peliculas que superen la popularidad de 970000, y mapear unicamente 3 (tres) peliculas y no 4 (cuatro) como lo pedia el enunciado ya que las imagenes quedaban demasiado pequeñas y no se visualizaban correctamente.
+Finalmente para la opcion "Mis Peliculas" obtuve mediante un evento "onClick" el target del usuario para poder mapear los datos obtenidos de la pelicula que seleccione el usuario y graficarla.
 
-### `npm start`
+En la carpeta `custom` se encuentran dos archivos muy pequeños en donde uno realiza un listado para las opciones del menu desplegable y otro crea los iconos que se muestran en el navbar.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Por ultimo, en la carpeta `context` se encuentran 3 (tres) contextos creados, lo cual lo decidi asi para mayor orden a la hora de leer el codigo. Existe un contexto para el Menu despegable, otro para el Modal desplegable (desde donde se añaden peliculas) y otro para las opciones que se despliegan al querer añadir una pelicula.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+# Librerias utilizadas
 
-### `npm test`
+Para la estilizacion de mis componentes utilice la libreria [Styled Components](https://styled-components.com/) la cual me parecio la mas practica y rapida para la ocasion.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Y para crear animaciones utilice la libreria [Framer Motion](https://www.framer.com/motion/) la cual con pocas lineas de codigo podia crear simples animaciones.
 
-### `npm run build`
+# Deployment
+🎬 [Liteflix Challenge](https://liteflix-fawn.vercel.app/)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
