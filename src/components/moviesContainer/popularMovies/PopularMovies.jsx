@@ -72,7 +72,7 @@ export default function PopularMovies({ movies }) {
 const Container = styled(motion.div)`
     margin: 0 0 0 15rem;
 
-    @media (max-width: 768px) {
+    @media (max-width: 900px) {
         margin: 4rem 0 3rem 0;
     }
 `

@@ -46,7 +46,7 @@ const Overlay = styled.div`
     align-items: center;
     justify-content: center;
 
-    @media (max-width: 768px) {
+    @media (max-width: 900px) {
         height: auto;
     }
 `

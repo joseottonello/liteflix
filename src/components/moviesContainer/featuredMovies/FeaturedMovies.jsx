@@ -40,7 +40,7 @@ const Container = styled(motion.div)`
     margin: 15rem 5rem 0 0;
     max-width: 60%;
     
-    @media (max-width: 768px) {
+    @media (max-width: 900px) {
         margin: 15rem 0 0 0;
     }
 `
@@ -55,7 +55,7 @@ const Text = styled.span`
     line-height: ${props => props.title ? "100px" : "20px"};
     letter-spacing: ${props => props.title ? "16px" : "4px"};
     
-    @media (max-width: 768px) {
+    @media (max-width: 900px) {
         font-size: ${props => props.title ? "50px" : "20px"};
         line-height: ${props => props.title ? "40px" : "20px"};
         letter-spacing: ${props => props.title ? "5px" : "4px"};
@@ -83,7 +83,7 @@ const Button = styled.button`
         color: #000;
     }
 
-    @media (max-width: 768px) {
+    @media (max-width: 900px) {
         margin: 0.5rem;
     }
 `

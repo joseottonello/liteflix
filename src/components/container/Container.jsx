@@ -64,7 +64,7 @@ const MoviesContainer = styled.div`
     display: flex;
     flex-direction: row;
 
-    @media (max-width: 768px) {
+    @media (max-width: 900px) {
         margin: 0 1rem 0 1rem;
         flex-direction: column;
         align-items: center;

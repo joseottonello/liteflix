@@ -73,7 +73,7 @@ const Container = styled.div`
     padding: 20px;
     justify-content: center;
 
-    @media (max-width: 768px) {
+    @media (max-width: 900pxw) {
         width: 400px;
     }
 `

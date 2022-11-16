@@ -47,7 +47,7 @@ const Section = styled(motion.div)`
 `
 
 const Div = styled(motion.div)`
-    @media (max-width: 768px) {
+    @media (max-width: 900px) {
         display: none;
     }
 `
@@ -62,7 +62,7 @@ const Title = styled(motion.h1)`
     color: #64EEBC;
     cursor: pointer;
     
-    @media (max-width: 768px) {
+    @media (max-width: 900px) {
         position: relative;
         margin-left: 6rem;
     }

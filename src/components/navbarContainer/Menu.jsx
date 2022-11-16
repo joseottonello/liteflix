@@ -44,7 +44,7 @@ const Overlay = styled.div`
     align-items: center;
     justify-content: right;
 
-    @media (max-width: 768px) {
+    @media (max-width: 900px) {
         width: 740px;
     }
 `
@@ -68,7 +68,7 @@ const IconContent = styled.div`
     justify-content: flex-end;
     margin-right: 3.5rem;
 
-    @media (max-width: 768px) {
+    @media (max-width: 900px) {
         display: inherit;
         margin: 0;
     }

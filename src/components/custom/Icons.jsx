@@ -62,7 +62,7 @@ const Icon = styled(motion.div)`
     width: 40px;
     cursor: pointer;
 
-    @media (max-width: 768px) {
+    @media (max-width: 900px) {
         display: none;
     }
 `
